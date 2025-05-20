@@ -104,5 +104,26 @@ spring.flyway.enabled=true
 spring.flyway.locations=classpath:db/migration
 app.users.addresses.url.viacep=https://viacep.com.br
 ````
+---
+
+## 🧪 Configurações para Testes
+
+### Banco de Dados para Testes
+
+Para executar os testes, você pode utilizar um banco de dados em memória como o H2. Para isso, adicione a seguinte configuração no arquivo `src/test/resources/application-test.properties`:
+
+```properties
+spring.datasource.url=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.flyway.enabled=false
+spring.flyway.locations=classpath:db/migration
+````
+
 
 
